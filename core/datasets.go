@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/qri-io/qri/repo/profile"
 	"github.com/ipfs/go-datastore"
 	"github.com/qri-io/cafs"
 	ipfs "github.com/qri-io/cafs/ipfs"
@@ -87,7 +88,8 @@ func (r *DatasetRequests) List(p *ListParams, res *[]repo.DatasetRef) error {
 			return fmt.Errorf("cannot list remote datasets without p2p connection")
 		}
 
-		replies, err := r.Node.RequestDatasetsList(ds.Peername)
+		id := 
+		replies, err := r.Node.RequestDatasetsList(ds.PeerID)
 		*res = replies
 		return err
 	}
